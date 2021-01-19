@@ -119,29 +119,3 @@ jobs:
       with:
         name: OpenWrt_bin_${{ env.Artifacts_DATE }}
         path: openwrt/bin
-
-    - name: Upload Firmware to Releases
-      uses: softprops/action-gh-release@v1
-      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
-      env:
-        GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
-      with:
-        tag_name: AutoUpdate
-        body_path: update_log.txt
-        files: openwrt/bin/Firmware/*
-        
-    - name: Remove old Releases
-      uses: dev-drprasad/delete-older-releases@v0.1.0
-      if: env.REMOVE_OLD_RELEASE == 'true' && !cancelled()
-      with:
-        keep_latest: 3
-        delete_tags: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        
-    - name: Remove workflow runs
-      uses: GitRML/delete-workflow-runs@main
-      if: env.REMOVE_WORKFLOW_RUNS == 'true' && !cancelled()
-      with:
-        retain_days: 1
-        keep_minimum_runs: 3
