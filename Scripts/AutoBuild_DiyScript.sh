@@ -5,7 +5,7 @@
 
 Diy_Core() {
 	Author=Hyy2001
-	Default_Device=xiaomi_mir3g
+	Default_Device=d-team_newifi-d2
 
 	INCLUDE_AutoUpdate=false
 	INCLUDE_AutoBuild_Tools=true
