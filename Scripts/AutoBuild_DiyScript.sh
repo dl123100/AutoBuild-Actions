@@ -43,6 +43,9 @@ Diy-Part1() {
 Diy-Part2() {
 	Diy_Part2_Base
 	Replace_File Customize/mwan3.config package/feeds/packages/mwan3/files/etc/config mwan3
+	sed -i 's/192.168.1.1/192.168.123.1/g' package/base-files/files/bin/config_generate
+	sed -i 's/OpenWrt/MI-R3G/g' package/base-files/files/bin/config_generate
+	sed -i 's/OpenWrt/Xiaomi_4ECC/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 	# ExtraPackages svn feeds/packages mwan3 https://github.com/openwrt/packages/trunk/net
 }
 
