@@ -5,14 +5,14 @@
 
 Diy_Core() {
 	Author=Hyy2001
-	Default_Device=DEVICE_xiaomi_mir3g
+	Default_Device=d-team_newifi-d2
 
-	INCLUDE_AutoUpdate=false
+	INCLUDE_AutoUpdate=true
 	INCLUDE_AutoBuild_Tools=true
 	INCLUDE_SSR_Plus=true
-	INCLUDE_Passwall=true
+	INCLUDE_Passwall=false
 	INCLUDE_Latest_Xray=true
-	INCLUDE_mt7621_OC1000MHz=true
+	INCLUDE_mt7621_OC1000MHz=false
 	INCLUDE_Enable_FirewallPort_53=true
 }
 
@@ -33,19 +33,16 @@ Diy-Part1() {
 	ExtraPackages git lean luci-theme-argon https://github.com/jerrykuku 18.06
 	ExtraPackages git other luci-app-argon-config https://github.com/jerrykuku master
 	ExtraPackages git other luci-app-adguardhome https://github.com/Hyy2001X master
-	ExtraPackages svn other luci-app-smartdns https://github.com/project-openwrt/openwrt/trunk/package/ntlf9t
-	ExtraPackages svn other smartdns https://github.com/project-openwrt/openwrt/trunk/package/ntlf9t
+	ExtraPackages svn other luci-app-smartdns https://github.com/kenzok8/openwrt-packages/trunk
+	ExtraPackages svn other smartdns https://github.com/kenzok8/openwrt-packages/trunk
 	ExtraPackages git other OpenClash https://github.com/vernesong master
 	ExtraPackages git other luci-app-serverchan https://github.com/tty228 master
-	ExtraPackages svn other luci-app-socat https://github.com/project-openwrt/openwrt/trunk/package/lienol
+	ExtraPackages svn other luci-app-socat https://github.com/Lienol/openwrt-package/trunk
 }
 
 Diy-Part2() {
 	Diy_Part2_Base
 	Replace_File Customize/mwan3.config package/feeds/packages/mwan3/files/etc/config mwan3
-	sed -i 's/192.168.1.1/192.168.123.1/g' package/base-files/files/bin/config_generate
-	sed -i 's/OpenWrt/MI-R3G/g' package/base-files/files/bin/config_generate
-	sed -i 's/OpenWrt/Xiaomi_4ECC/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 	# ExtraPackages svn feeds/packages mwan3 https://github.com/openwrt/packages/trunk/net
 }
 
