@@ -46,6 +46,9 @@ Diy-Part2() {
 	sed -i 's/192.168.1.1/192.168.123.1/g' package/base-files/files/bin/config_generate
 	sed -i 's/OpenWrt/MI-R3G/g' package/base-files/files/bin/config_generate
 	sed -i 's/OpenWrt/Xiaomi_4ECC/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+	sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
+	sed -i '/uci commit system/i\uci set system.@system[0].hostname='MI-R3G'' package/lean/default-settings/files/zzz-default-settings
+	sed -i "s/OpenWrt /dl123100 build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
 	# ExtraPackages svn feeds/packages mwan3 https://github.com/openwrt/packages/trunk/net
 }
 
