@@ -3,9 +3,9 @@
 ![GitHub Stars](https://img.shields.io/github/stars/Hyy2001X/AutoBuild-Actions.svg?style=flat-square&label=Stars&logo=github)
 ![GitHub Forks](https://img.shields.io/github/forks/Hyy2001X/AutoBuild-Actions.svg?style=flat-square&label=Forks&logo=github)
 
-**自动编译:本项目将在每天 19:00 启动自动编译**
+~~自动编译:本项目将在每天 19:00 启动自动编译~~
 
-当前测试通过的设备: `d-team_newifi-d2`、`phicomm_k2p`、以及一些使用 bin 格式固件的设备
+测试通过的设备: `d-team_newifi-d2`、`phicomm_k2p`、`x86_64(img、img.gz)`、以及使用 bin 格式固件的设备
 
 ## Github Actions 部署指南(STEP 1):
 
@@ -29,9 +29,9 @@
 
 1. 进入你的`AutoBuild-Actions`仓库,**下方所有操作都将在你的`AutoBuild-Actions`仓库下进行**
 
-2. 把本地的 '.config' 文件重命名并上传到**仓库根目录**或者直接修改`NEWIFI_D2-NIGHTLY.config`
+2. 把本地的 '.config' 文件重命名并上传到`/Configs`或者直接修改原有文件
 
-3. 编辑`.github/workflows/AutoBuild.yml`文件,修改`第 27 行`为你上传的 '.config' 文件名称
+3. 编辑`.github/workflows/*.yml`文件,修改`第 27 行`为你上传的 '.config' 文件名称
 
 4. 按照你的需求编辑`Scripts/AutoBuild_DiyScript.sh`文件(可以跳过此步骤)
 
@@ -83,10 +83,6 @@
 
    检查并更新固件(不保留配置): `bash /bin/AutoUpdate.sh -n`
    
-   更新到最新稳定版(保留配置): `bash /bin/AutoUpdate.sh -s`
-   
-   更新到最新稳定版(不保留配置): `bash /bin/AutoUpdate.sh -sn`
-   
    列出部分系统参数(用于反馈问题): `bash /bin/AutoUpdate.sh -l`
    
    切换检查更新/固件下载通道: `bash /bin/AutoUpdate.sh -c [地址]`
@@ -106,5 +102,7 @@
    - [P3TERX's Project](https://github.com/P3TERX/Actions-OpenWrt)
    
    - [P3TERX's Blog](https://p3terx.com/archives/build-openwrt-with-github-actions.html)
+
+   - [eSir's workflow](https://github.com/esirplayground/AutoBuild-OpenWrt/blob/master/.github/workflows/Build_OP_x86_64.yml)
    
-   - 开发前期测试人员: [CurssedCoffin](https://github.com/CurssedCoffin) [Licsber](https://github.com/Licsber)
+   - 测试/建议: [CurssedCoffin](https://github.com/CurssedCoffin) [Licsber](https://github.com/Licsber) [sirliu](https://github.com/sirliu?tab=repositories)
