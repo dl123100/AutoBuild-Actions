@@ -83,8 +83,9 @@ jobs:
         sed -i 's/OpenWrt/Xiaomi_4ECC/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
         sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
         sed -i "s/OpenWrt /dl123100 build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
+        sed -i '/uci commit system/i\uci set system.@system[0].hostname='MI-R3G'' package/lean/default-settings/files/zzz-default-settings
         
-sed -i '/uci commit system/i\uci set system.@system[0].hostname='MI-R3G'' package/lean/default-settings/files/zzz-default-settings
+
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
       if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
